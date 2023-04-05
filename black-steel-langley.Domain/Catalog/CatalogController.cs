@@ -1,5 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+using Black.Steel.Langley.Data;
 using black.steel.langley.Domain.Catalog;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace black.steel.langley.Controllers
 {
@@ -7,16 +9,16 @@ namespace black.steel.langley.Controllers
     [Route("[controller]")]
     public class CatalogController : ControllerBase
     {
+        private readonly StoreContext _db;
+
+        public CatalogController(StoreContext db)        {
+            _db = db;
+        }
        [HttpGet]
         public IActionResult GetItmes()
         {
-            var items = new List<Item>();
-            {
-                new Item("Shirt", "Ohio State Shirt.", "Nike", 29.99m);
-                new Item("Shorts", "Ohio State Shorts", "Nike", 44.99m);
-            }
-
-            return Ok(items);
+  
+            return Ok(_db.Items);
         } 
         [HttpGet("{id:int}")]
         public IActionResult GetItem(int id)
