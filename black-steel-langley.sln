@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "black-steel-langley.Api", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "black-steel-langley.Domain", "black-steel-langley.Domain\black-steel-langley.Domain.csproj", "{6F50BF1C-34AA-4FCA-AA60-50FDBC4EE652}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLACK-STEEL-LANGLEY.Data", "Black-Steel-Langley.Data\BLACK-STEEL-LANGLEY.Data.csproj", "{A8C958CE-1D45-4BF2-9C82-848FD8389808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{6F50BF1C-34AA-4FCA-AA60-50FDBC4EE652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F50BF1C-34AA-4FCA-AA60-50FDBC4EE652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F50BF1C-34AA-4FCA-AA60-50FDBC4EE652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C958CE-1D45-4BF2-9C82-848FD8389808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C958CE-1D45-4BF2-9C82-848FD8389808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C958CE-1D45-4BF2-9C82-848FD8389808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C958CE-1D45-4BF2-9C82-848FD8389808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
