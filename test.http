@@ -1,1 +1,10 @@
-http://localhost:5114/catalog
+Post http://localhost:5114/catalog
+Content-Type: application/json
+
+{
+    "name": "Shoes",
+    "description": "Ohio State shoes",
+    "brand": "Nike",
+    "price": 129.99
+    
+}
