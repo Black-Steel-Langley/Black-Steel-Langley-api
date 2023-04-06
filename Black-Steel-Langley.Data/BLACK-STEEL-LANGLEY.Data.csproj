@@ -12,7 +12,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>Black_Steel_Langley.Data</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
 </Project>

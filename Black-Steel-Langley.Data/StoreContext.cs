@@ -1,4 +1,5 @@
 ﻿using Black.Steel.Langley.Domain.Catalog;
+using Black.Steel.Langley.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 
 namespace Black.Steel.Langley.Data {
@@ -8,6 +9,8 @@ namespace Black.Steel.Langley.Data {
         { }
 
         public DbSet<Item> Items {get; set; }
+
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder);
