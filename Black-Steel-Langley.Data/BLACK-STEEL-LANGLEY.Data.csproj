@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Black-Steel-Langley.Domain\Black-Steel-Langley.Domain.csproj" />
+    <ProjectReference Include="..\black-steel-langley.Domain\black-steel-langley.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -10,9 +10,9 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>BLACK_STEEL_LANGLEY.Data</RootNamespace>
+    <RootNamespace>Black_Steel_Langley.Data</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
 </Project>
