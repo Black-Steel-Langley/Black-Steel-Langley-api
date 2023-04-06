@@ -1,24 +1,33 @@
-using Black.Steel.Langley.Data;
-using black.steel.langley.Domain.Catalog;
 using Microsoft.AspNetCore.Mvc;
+using Black.Steel.Langley.Domain.Catalog;
+using Black.Steel.Langley.Data;
 
+// #pragma warning restore format
 
-namespace black.steel.langley.Controllers
+namespace Black.Steel.Langley.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class CatalogController : ControllerBase
     {
         private readonly StoreContext _db;
-
-        public CatalogController(StoreContext db)        {
+        
+        public CatalogController(StoreContext db)
+        {
             _db = db;
         }
+
        [HttpGet]
         public IActionResult GetItmes()
         {
-  
+            // var items = new List<Item>();
+            // {
+            //     new Item("Shirt", "Ohio State Shirt.", "Nike", 29.99m);
+            //      new Item("Shorts", "Ohio State Shorts", "Nike", 44.99m);
+            // }
+
             return Ok(_db.Items);
+            // return Ok(items);
         } 
         [HttpGet("{id:int}")]
         public IActionResult GetItem(int id)
@@ -56,7 +65,5 @@ namespace black.steel.langley.Controllers
         {
             return NoContent();
         }
-
-
     }
 }
