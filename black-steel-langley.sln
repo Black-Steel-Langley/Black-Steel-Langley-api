@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "black-steel-langley.Api", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Black-Steel-Langley.Data", "Black-Steel-Langley.Data\Black-Steel-Langley.Data.csproj", "{60B02068-FEE9-4466-8D07-3E5ED2497E83}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2FE3F9B3-AB19-4146-AC6F-B1B3A20EBF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Black-Steel-Langley.Domain.Tests", "Tests\Black-Steel-Langley.Domain.Tests\Black-Steel-Langley.Domain.Tests.csproj", "{6F20315B-9606-49D6-8A30-1F36BDD2D2EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,12 @@ Global
 		{60B02068-FEE9-4466-8D07-3E5ED2497E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60B02068-FEE9-4466-8D07-3E5ED2497E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60B02068-FEE9-4466-8D07-3E5ED2497E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F20315B-9606-49D6-8A30-1F36BDD2D2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F20315B-9606-49D6-8A30-1F36BDD2D2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F20315B-9606-49D6-8A30-1F36BDD2D2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F20315B-9606-49D6-8A30-1F36BDD2D2EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F20315B-9606-49D6-8A30-1F36BDD2D2EB} = {2FE3F9B3-AB19-4146-AC6F-B1B3A20EBF68}
 	EndGlobalSection
 EndGlobal
