@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -29,6 +30,19 @@ namespace Black.Steel.Langley.Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CreatedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rating",
                 columns: table => new
                 {
@@ -49,6 +63,26 @@ namespace Black.Steel.Langley.Api.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "OrderItem",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Item = table.Column<int>(type: "INTEGER", nullable: false),
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    OrderID = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItem", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_OrderItem_Orders_OrderID",
+                        column: x => x.OrderID,
+                        principalTable: "Orders",
+                        principalColumn: "ID");
+                });
+
             migrationBuilder.InsertData(
                 table: "Items",
                 columns: new[] { "Id", "Brand", "Description", "Name", "Price" },
@@ -57,6 +91,11 @@ namespace Black.Steel.Langley.Api.Migrations
                     { 1, "Nike", "Ohio State shit", "Shirt", 29.99m },
                     { 2, "Nike", "Ohio State shorts", "Shorts", 44.99m }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItem_OrderID",
+                table: "OrderItem",
+                column: "OrderID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rating_ItemId",
@@ -68,7 +107,13 @@ namespace Black.Steel.Langley.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "OrderItem");
+
+            migrationBuilder.DropTable(
                 name: "Rating");
+
+            migrationBuilder.DropTable(
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Items");

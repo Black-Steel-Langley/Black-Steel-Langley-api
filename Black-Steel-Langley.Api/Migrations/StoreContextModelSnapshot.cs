@@ -15,7 +15,7 @@ namespace Black.Steel.Langley.Api.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
 
             modelBuilder.Entity("Black.Steel.Langley.Domain.Catalog.Item", b =>
                 {
@@ -88,6 +88,42 @@ namespace Black.Steel.Langley.Api.Migrations
                     b.ToTable("Rating");
                 });
 
+            modelBuilder.Entity("Black.Steel.Langley.Domain.Orders.Order", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Black.Steel.Langley.Domain.Orders.OrderItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Item")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("OrderID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OrderID");
+
+                    b.ToTable("OrderItem");
+                });
+
             modelBuilder.Entity("Black.Steel.Langley.Domain.Catalog.Rating", b =>
                 {
                     b.HasOne("Black.Steel.Langley.Domain.Catalog.Item", null)
@@ -95,9 +131,21 @@ namespace Black.Steel.Langley.Api.Migrations
                         .HasForeignKey("ItemId");
                 });
 
+            modelBuilder.Entity("Black.Steel.Langley.Domain.Orders.OrderItem", b =>
+                {
+                    b.HasOne("Black.Steel.Langley.Domain.Orders.Order", null)
+                        .WithMany("Items")
+                        .HasForeignKey("OrderID");
+                });
+
             modelBuilder.Entity("Black.Steel.Langley.Domain.Catalog.Item", b =>
                 {
                     b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("Black.Steel.Langley.Domain.Orders.Order", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

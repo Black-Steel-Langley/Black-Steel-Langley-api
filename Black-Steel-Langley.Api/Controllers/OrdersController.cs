@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Black.Steel.Langley.Domain.Orders;
+using Black.Steel.Langley.Data;
 
 namespace black_steel_langley.Api.Controllers
 {
@@ -13,9 +14,9 @@ namespace black_steel_langley.Api.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly Class1 _context;
+        private readonly StoreContext _context;
 
-        public OrdersController(Class1 context)
+        public OrdersController(StoreContext context)
         {
             _context = context;
         }
@@ -24,22 +25,22 @@ namespace black_steel_langley.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
         {
-          if (_context.Order == null)
+          if (_context.Orders == null)
           {
               return NotFound();
           }
-            return await _context.Order.ToListAsync();
+            return await _context.Orders.ToListAsync();
         }
 
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-          if (_context.Order == null)
+          if (_context.Orders == null)
           {
               return NotFound();
           }
-            var order = await _context.Order.FindAsync(id);
+            var order = await _context.Orders.FindAsync(id);
 
             if (order == null)
             {
@@ -85,11 +86,11 @@ namespace black_steel_langley.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-          if (_context.Order == null)
+          if (_context.Orders == null)
           {
               return Problem("Entity set 'Class1.Order'  is null.");
           }
-            _context.Order.Add(order);
+            _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOrder", new { id = order.ID }, order);
@@ -99,17 +100,17 @@ namespace black_steel_langley.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
-            if (_context.Order == null)
+            if (_context.Orders == null)
             {
                 return NotFound();
             }
-            var order = await _context.Order.FindAsync(id);
+            var order = await _context.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
             }
 
-            _context.Order.Remove(order);
+            _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -117,7 +118,7 @@ namespace black_steel_langley.Api.Controllers
 
         private bool OrderExists(int id)
         {
-            return (_context.Order?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.Orders?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

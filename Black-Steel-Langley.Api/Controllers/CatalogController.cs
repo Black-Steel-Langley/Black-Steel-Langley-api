@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Black.Steel.Langley.Domain.Catalog;
 using Black.Steel.Langley.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 // #pragma warning restore format
 
@@ -84,6 +85,7 @@ namespace Black.Steel.Langley.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize("delete:catalog")]
         public IActionResult DeleteItem(int id)
         {
             var item =_db.Items.Find(id);

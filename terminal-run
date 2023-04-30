@@ -1,0 +1,16 @@
+dotnet tool install --global dotnet-ef 
+dotnet tool install --global dotnet-aspnet-codegenerator
+
+cd Black-Steel-Langley.Api
+dotnet add package Microsoft.Entity.FrameworkCore.Sqlite
+
+cd Black-Steel-Langley.Data
+dotnet add package Microsoft.Entity.FrameworkCore.Sqlite
+
+cd Black-Steel-Langley.Api
+dotnet add package Microsfot.EntityFrameworkCore.Design
+dotnet ef database update 
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
