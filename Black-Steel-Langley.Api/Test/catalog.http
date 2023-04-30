@@ -1,0 +1,17 @@
+### DELETE
+DELETE https://localhost:5155/catalog/3 HTTP/1.1
+
+### GET token from Auth0
+curl --request POST \
+  --url https://dev-lul7ripqtca1ft1r.us.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{"client_id":"1Xqm3yCDLcnfgKdsTBmaNGEFiH1T5t9t","client_secret":"Pt-TY8vY3I8T-de2ZJjw_k92ua683islwcmDOPCtvSxMi-lNl0Ik49ULrXZvr9yo","audience":"https://black-steel-langley","grant_type":"client_credentials"}'
+
+### DELETE a Item to the Catalog collection
+curl --request DELETE \
+    --url https://localhost:/5155/catalog/3 \
+    --header 'authorization: Bearer {
+            "alg": "RS256",
+            "typ": "JWT",
+            "kid": "sWU2QdebyOiZbEVP05pBj"
+    }
