@@ -17,7 +17,7 @@ builder.Services.AddDbContext<StoreContext>(options =>
 );
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolict(builder =>
+    options.AddDefaultPolicy(builder =>
     {
         //If error with localhost, try changning this vvv 
         builder.WithOrigins("http://localhost:3000")
